@@ -65,7 +65,6 @@ public class Main : MonoBehaviour
 
         // z coordinate of game object on screen
         mousePoint.z = mZCoord;
-
         // Convert it to world points
         return Camera.main.ScreenToWorldPoint(mousePoint);
 
@@ -129,8 +128,7 @@ public class Main : MonoBehaviour
         // If object is picked up update its position
         if (pickedUpObject != null)
         {
-            //mOffset = pickedUpObject.transform.position - GetMouseAsWorldPoint();
-            rb.MovePosition(GetMouseAsWorldPoint() + mOffset);
+            rb.velocity = (GetMouseAsWorldPoint() - rb.position) * 10;
             rb.useGravity = false;
         }
     }
