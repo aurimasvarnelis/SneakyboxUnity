@@ -37,13 +37,13 @@ public class Main : MonoBehaviour
         {
             Debug.DrawLine(ray.origin, hit.point, Color.red);
 
-            // For placing objects
+            // To place an object
             InstantiateObject(hit);
 
-            // Moving object
+            // To move an object
             MoveObject(hit);
 
-            // Open color menu
+            // To open the color menu
             OpenColorMenu(hit);
 
             // If color menu is open then update selected object color
@@ -51,7 +51,6 @@ public class Main : MonoBehaviour
 
             // To destroy an object
             DeleteObject(hit);
-
         }
     }
 
@@ -102,11 +101,11 @@ public class Main : MonoBehaviour
     /// </summary>
     /// <param name="hit">Selected object</param>
     private void MoveObject(RaycastHit hit)
-    {   
-        // Pick up object
-        if (Input.GetMouseButtonDown(0))
+    {
+        if (hit.collider.CompareTag("EditableObject"))   
         {
-            if (hit.collider.CompareTag("EditableObject"))
+            // Pick up object
+            if (Input.GetMouseButtonDown(0))
             {
                 rb = hit.collider.GetComponent<Rigidbody>();
 
@@ -117,22 +116,22 @@ public class Main : MonoBehaviour
                 // Store offset = gameobject world pos - mouse world pos
                 mOffset = pickedUpObject.transform.position - GetMouseAsWorldPoint();
             }
-        }
 
-        // Put down object
-        if (Input.GetMouseButtonUp(0))
-        {
-            rb.useGravity = true;
-            pickedUpObject = null;
-            rb = null;   
-        }
+            // Put down object
+            if (Input.GetMouseButtonUp(0))
+            {
+                rb.useGravity = true;
+                pickedUpObject = null;
+                rb = null;
+            }
 
-        // If object is picked up update its position
-        if (pickedUpObject != null)
-        {
-            rb.MovePosition(GetMouseAsWorldPoint() + mOffset);
-            rb.useGravity = false;
-        }
+            // If object is picked up update its position
+            if (pickedUpObject != null)
+            {
+                rb.MovePosition(GetMouseAsWorldPoint() + mOffset);
+                rb.useGravity = false;
+            }
+        } 
     }
 
     /// <summary>
