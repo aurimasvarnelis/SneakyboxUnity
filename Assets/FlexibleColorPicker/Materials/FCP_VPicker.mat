@@ -82,9 +82,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0, g: 0, b: 0, a: 1}
-    - _Color2: {r: 0.026000082, g: 1, b: 0.3045253, a: 1}
+    - _Color2: {r: 0.25, g: 1, b: 0.25142157, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HSV: {r: 0.3809997, g: 0.9739999, b: 0.9803921, a: 1}
+    - _HSV: {r: 0.33365482, g: 0.75, b: 0.6603774, a: 1}
     - _HSV_MAX: {r: 1, g: 1, b: 1, a: 0}
     - _HSV_MIN: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

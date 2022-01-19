@@ -124,14 +124,15 @@ public class Main : MonoBehaviour
                 pickedUpObject = null;
                 rb = null;
             }
+        }
 
-            // If object is picked up update its position
-            if (pickedUpObject != null)
-            {
-                rb.MovePosition(GetMouseAsWorldPoint() + mOffset);
-                rb.useGravity = false;
-            }
-        } 
+        // If object is picked up update its position
+        if (pickedUpObject != null)
+        {
+            //mOffset = pickedUpObject.transform.position - GetMouseAsWorldPoint();
+            rb.MovePosition(GetMouseAsWorldPoint() + mOffset);
+            rb.useGravity = false;
+        }
     }
 
     /// <summary>
